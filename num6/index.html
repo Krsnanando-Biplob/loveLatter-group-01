@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parallax Scrolling</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .parallax {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  #section1 {
+    background-image: url('https://via.placeholder.com/1920x1080');
+  }
+
+  #section2 {
+    background-image: url('https://via.placeholder.com/1920x1080?text=Section+2');
+  }
+
+  #section3 {
+    background-image: url('https://via.placeholder.com/1920x1080?text=Section+3');
+  }
+
+  .content {
+    padding: 50px 20px;
+    background: #f4f4f4;
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+</style>
+
+<body>
+  <div class="parallax" id="section1">
+    <h1>Welcome to Parallax Scrolling</h1>
+  </div>
+  <section class="content">
+    <h2>About This Effect</h2>
+    <p>
+      Parallax scrolling is a web design technique in which the background moves at a slower speed than the foreground,
+      creating a 3D effect.
+    </p>
+  </section>
+  <div class="parallax" id="section2">
+    <h1>Experience the Depth</h1>
+  </div>
+  <section class="content">
+    <h2>How It's Done</h2>
+    <p>
+      This effect can be achieved using a combination of CSS and JavaScript to control the scrolling behavior.
+    </p>
+  </section>
+  <div class="parallax" id="section3">
+    <h1>Thank You!</h1>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      const parallaxSections = document.querySelectorAll('.parallax');
+      parallaxSections.forEach(section => {
+        const speed = 0.5; // Adjust speed for a stronger or weaker effect
+        const offset = window.pageYOffset;
+        section.style.backgroundPositionY = offset * speed + "px";
+      });
+    });
+
+  </script>
+</body>
+
+</html>
